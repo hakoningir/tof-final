@@ -17,7 +17,290 @@ x = (x|12) >> 3
 
 
 0000	0100	0000	1011
-1024+8+2+1 = 1035
-x = 1035
+x = 0x040B
+
 
 b.
+túlka þetta sem float
+0000...001
+flippa þessu
+1111...110+1
+=
+1111...111
+
+= -inf
+
+c.
+v = 13
+for c=0 ; v ; c++;
+	v = v & (v-1);
+
+1101===13
+1100===12
+------------
+1100===12
+1011===11
+------------
+1000===8
+0111===7
+-----------
+0000===0
+
+c = 3
+
+almennt lokagildi á c fylgir hversu margir ásar eru í byrjunargildi v
+
+
+2.
+a.
+int twoa (int x, int y){
+    if (x <= 0){
+        x = y/4;
+        return x;
+    }
+    x = 7*y;
+    return x;
+}
+
+b.
+6 - bætir 3 við y og setur inn í x
+7 - setur viðeigandi flögg
+8 - færir y inn í x ef viðeigandi flögg eru rétt.
+
+c.
+void twoc(int x. int *py){
+    if (x <= 0){
+        py = x/4;
+        return py;
+    }
+    py = 7*x;
+    return py;
+}
+
+Þetta tekur test skipanirnar í burtu og færir x strax inn í bendinn py með cmovns.
+
+3.
+a
+// sennilega vitlaust
+int rfind(int *a, int n, int x) {
+	if (n<1)
+		return *a += 8;
+	if (a[n-1] == x)
+		return x-(n+1);
+	return rfind ( a, n-1, x);
+}
+
+b.
+þetta er að bera x við -1(n+x)
+
+c.
+Þetta er allt í kösinni
+:)
+
+4.
+a.
+
+
+R = S * E * B
+R = stærð
+S = fjöldi mengja
+E = lengd mengis
+B = fjöldi hólfa
+
+R = 4 = 2^12
+S = 
+E = 
+B =
+
+2^12 = 2^7 * 2^1 * 2 ^s
+12-8 = s = 4
+s = 2^4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+SVÖR FRÁ ÁRNA
+Prófundirbúningur TÖF
+
+H19 Lokapróf
+
+1.
+
+a) 0010 0000 0101 0001
+   0000 0000 0000 1100
+   0010 0000 0101 1101
+0000 0100 0000 1011
+0x040B
+
+b) -inf
+
+6.25
+
+c) 
+v
+c = 0
+1101
+1100
+= 1100
+
+c = 1
+1100
+1011
+= 1000
+
+c = 2
+1000
+0111
+= 0
+
+v = 1, v = 2, c = 0
+v = 3, c = 1
+10
+11
+v = 4, c = 0
+v = 5, c = 1
+100
+101
+v = 6, c = 1
+100
+110
+v = 7, c = 2
+100
+111
+v = 8, c = 0
+v = 9, c = 1
+v = 10, c = 1
+v = 11, c = 2
+c = fjöldi 1 bita sem stendur eftir þegar (v << 1) ef við tökum öll núll frá framan við v
+v = 3
+(v<<1) = 1
+fjöldi bita eftir = 1
+lokagildi c = 1
+
+v = 11 = 1011_2
+(v<<1) = 011_2
+fjöldi bita eftir = 2
+lokagildi c = 2
+
+v = 13 = 1101
+(v<<1) = 1010
+fjöldi 1 bita eftir = 2
+lokagildi c = 2
+
+v = 15 = 1111
+(v<<1) = 1110
+fjöldi bita eftir = 3
+lokagildi c = 3
+
+2.
+a)
+
+int bla(int x, int y) {
+    if (y <= 0) {
+        return (x<=0) ? x : x + 3;
+    }
+    return 7*x;
+}
+
+b) 
+#6 - bætir 3 við x og setur í skilahólf eax
+#7 - Jafngilt og að bera saman esi við núll, setur ZF=0 bara ef ESI er núll. Setur viðeigandi flögg. Það flagg sem við leitum að er SF
+#8 - færir esi í eax EF esi er jákvæð tala
+
+c)
+Helsta breytingin yrði að þar sem %rsi og %esi kemur fram í smalamálskóðanum myndi nú vera (%rsi) og (%esi). Til að útkoman færi í það hólf væri hægt að bæta línu við aftast í smalamálskóðann, movq 
+
+3.
+a)
+ret z = -1
+<1> return -1
+z = n
+<2> n-1
+<3> n-1
+
+b)
+Í grunninn þá dregur cmp skipunin fyrsta viðfangið frá seinna viðfanginu og stillir flögg eftir útkomunni. Hér er verið að draga edx frá (4*rax+rdi)-4. Ef útkoman er jákvæð er SF 1, ef útkoman er 0 er ZF 0, annars 1, ef talan er slétt tala e PF 1 etc
+
+c) 
+        endurkomuvistfang
+
+
+4.
+
+a)
+E = 2
+e = 1
+B = 128
+b = blokkarhliðrun = 7
+S = 16
+s = mengisnúmer = 4 
+t = 20-7-4=9
+
+svar A = 16
+
+b)
+2
+
+c)
+345 = 0|011 0|100 0101
+varpast í mengi 6
+0x12385
+
+d)
+
+
+Hprof 2020
+
+1.
+
+a)
+i)
+(10101010) & (01010100) = 0
+
+ii)
+(01101101) & 
+(11011010) = 01001000 = 72
+
+2.

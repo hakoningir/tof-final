@@ -1,0 +1,49 @@
+select rest from metnaður where hákon not dead;
+
+BITAVINNSLA:
+
+
+
+EINFALDAR FLEYTITÖLUR:
+
+formúla: 
+bias: ( 2^ ( k - 1 )) -1
+exp = fjöldi bita í exp
+k = fjöldi bita í M
+veldi: exp -bias = E
+fremsi bitinn segir til hvort se minus(1) eða plus(0)
+
+
+
+
+SMALAMÁLSKÓÐI ÚT FRÁ C:
+
+
+
+MINNISYFIRFLÆÐI:
+
+
+
+SKYNDIMINNI:
+
+
+
+FRÁBRIGÐI, FERLAR:
+
+
+
+SKIPULAG Á SÝNDARMINNI:
+
+
+
+MINNISÚTHLUTUN:
+
+R = S * E * B
+R = stærð
+S = fjöldi mengja
+E = lengd mengis
+B = fjöldi hólfa
+
+
+
+
